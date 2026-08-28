@@ -1,1067 +1,332 @@
-<!DOCTYPE html>
-<!-- A Raz de Cuerda - index.html para GitHub Pages
-  Subir: github.com -> nuevo repo -> subir archivo -> Settings -> Pages -> main -> Save
-  Pago online: reemplaza FLOW_LINK_AQUI con tu link de flow.cl o mercadopago.cl
-  Descuentos: edita el objeto CODIGOS en el script al final del archivo
-  WhatsApp: los numeros estan actualizados a +56964223619 y +56982510629
--->
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="A Raz de Cuerda - Rock clasico acustico en vivo. Bares, eventos corporativos, matrimonios y celebraciones en Santiago, Chile."/>
-<title>A Raz de Cuerda - Rock Clasico Acustico en Vivo - Santiago</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,600;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Raz de Cuerda — Rock Clásico Acústico</title>
+<meta name="description" content="A Raz de Cuerda — Rock clásico acústico en vivo. Música para matrimonios, eventos corporativos, celebraciones y espacios íntimos en Santiago.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0806;--bg2:#100e0b;--amber:#e08c2a;--amber-lt:#f5b24b;
-  --cream:#f0e4ca;--muted:#8a7a62;--div:rgba(224,140,42,.22);
-  --blue-lt:#90c8f8;
-  --disp:'Bebas Neue',sans-serif;--ser:'Playfair Display',serif;--body:'Barlow',sans-serif;
+  --bg:#080808; --panel:#111; --panel2:#171717; --line:#292929;
+  --text:#f5f3ee; --muted:#aaa49a; --accent:#e6b04a; --accent2:#f3d18a;
+  --max:1180px; --radius:22px;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--cream);font-family:var(--body);font-weight:300;line-height:1.7;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-body::before{content:'';position:fixed;inset:0;z-index:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-  pointer-events:none;opacity:.5;}
-section,nav,footer{position:relative;z-index:1;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(8,8,8,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:Oswald,sans-serif;font-size:22px;letter-spacing:.04em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:25px;font-size:13px;color:#ccc}
+.nav-links a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 19px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid var(--accent);transition:.25s}
+.btn.primary{background:var(--accent);color:#111}
+.btn.primary:hover{background:#f1c46d;transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--text)}
+.btn.ghost:hover{background:#fff;color:#111}
+.hero{min-height:790px;padding:150px 0 80px;display:grid;place-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88) 15%,rgba(0,0,0,.4) 55%,rgba(0,0,0,.75)),url("https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=2000&q=85") center/cover;filter:saturate(.75)}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:190px;background:linear-gradient(transparent,var(--bg))}
+.hero-content{position:relative;z-index:2;max-width:780px;margin-right:auto}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--accent);font-weight:700;margin-bottom:18px}
+h1,h2,h3{font-family:Oswald,sans-serif;text-transform:uppercase;line-height:.95;margin:0 0 20px}
+h1{font-size:clamp(60px,10vw,126px);letter-spacing:-.035em}
+h2{font-size:clamp(42px,6vw,72px)}
+h3{font-size:28px}
+.lead{font-size:clamp(18px,2.2vw,24px);color:#dedbd5;max-width:720px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.ticker{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:17px 0;color:#aaa;text-transform:uppercase;letter-spacing:.14em;font-size:11px}
+.ticker-track{display:inline-block;animation:scroll 28s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.section{padding:105px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:45px}
+.section-head p{max-width:560px;color:var(--muted);margin:0}
+.grid{display:grid;gap:18px}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.grid4{grid-template-columns:repeat(4,1fr)}
+.card{background:linear-gradient(145deg,#171717,#0f0f0f);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:#444}
+.photo{height:235px;background:center/cover}
+.card-body{padding:25px}
+.card-body p{color:var(--muted);margin-bottom:0}
+.tag{display:inline-block;color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.big-photo{min-height:560px;border-radius:30px;background:center/cover;box-shadow:0 30px 100px rgba(0,0,0,.35)}
+.feature-list{display:grid;gap:12px;margin-top:30px}
+.feature{display:flex;gap:16px;align-items:center;padding:18px;border:1px solid var(--line);border-radius:16px;background:#101010}
+.feature img{width:64px;height:64px;object-fit:cover;border-radius:12px}
+.feature b{display:block;margin-bottom:4px}.feature span{color:var(--muted);font-size:14px}
+.format-number{font-family:Oswald;font-size:72px;color:var(--accent);line-height:.8}
+.price-box{border:1px solid #3a321f;background:linear-gradient(145deg,#19160f,#0f0f0f);border-radius:26px;padding:30px;position:sticky;top:95px}
+.controls{display:grid;gap:22px}
+.control label{display:block;font-size:12px;color:#aaa;text-transform:uppercase;letter-spacing:.12em;margin-bottom:9px}
+.options{display:flex;flex-wrap:wrap;gap:8px}
+.option{border:1px solid #333;background:#111;color:#ddd;border-radius:999px;padding:10px 14px;cursor:pointer}
+.option.active{border-color:var(--accent);background:rgba(230,176,74,.12);color:var(--accent2)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.total{margin-top:25px;padding:22px;border-radius:18px;background:#090909;border:1px solid #292929}
+.total small{color:#8f8f8f}.total strong{display:block;font-family:Oswald;font-size:48px;color:var(--accent);margin-top:3px}
+.repertoire{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.song-card{padding:26px;border:1px solid var(--line);border-radius:20px;background:#101010}
+.song-card h3{font-size:24px}
+.song{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid #222;font-size:14px}
+.song:last-child{border-bottom:0}.song span{color:var(--muted)}
+.cta{padding:75px;border-radius:30px;background:linear-gradient(120deg,#211a0e,#111);border:1px solid #4a3a1b;text-align:center}
+footer{padding:45px 0;border-top:1px solid var(--line);color:#777;font-size:13px}
+@media(max-width:900px){.nav-links{display:none}.grid3,.grid4,.split,.repertoire{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:15px}.hero{min-height:720px}.big-photo{min-height:400px}.price-box{position:static}}
+@media(max-width:600px){.container{width:min(var(--max),calc(100% - 24px))}.hero{padding-top:125px}.section{padding:75px 0}.card-body{padding:20px}.photo{height:200px}.cta{padding:45px 20px}h1{font-size:62px}}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;transition:background .4s;}
-nav.scrolled{background:rgba(10,8,6,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--div);}
-.nav-logo{font-family:var(--disp);font-size:1.45rem;letter-spacing:.08em;color:var(--amber);}
-.nav-links{display:flex;gap:1.6rem;align-items:center;}
-.nav-links a{font-size:.73rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);opacity:.7;transition:opacity .2s,color .2s;}
-.nav-links a:hover{opacity:1;color:var(--amber-lt);}
-.nav-cta{background:var(--amber)!important;color:#0a0806!important;opacity:1!important;padding:.38rem 1rem;border-radius:2px;}
-.nav-cta:hover{background:var(--amber-lt)!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
-.hamburger span{width:24px;height:1.5px;background:var(--cream);}
-
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 5rem;position:relative;overflow:hidden;}
-#hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(224,140,42,.06) 60px),repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(224,140,42,.03) 60px);animation:gridDrift 22s linear infinite;}
-#hero::after{content:'';position:absolute;width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(224,140,42,.16) 0%,transparent 70%);pointer-events:none;animation:pulse 6s ease-in-out infinite;}
-@keyframes gridDrift{0%{transform:translate(0,0);}100%{transform:translate(60px,60px);}}
-@keyframes pulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1);}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1);}}
-.hero-tag{font-size:.7rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:1.3rem;opacity:0;animation:fadeUp .7s .2s ease forwards;}
-.hero-title{font-family:var(--disp);font-size:clamp(4.5rem,13vw,10rem);letter-spacing:.04em;line-height:.95;color:var(--cream);text-shadow:0 0 80px rgba(224,140,42,.27);opacity:0;animation:fadeUp .8s .4s ease forwards;}
-.hero-title span{color:var(--amber);}
-.hero-subtitle{font-family:var(--ser);font-style:italic;font-size:clamp(.93rem,2.4vw,1.35rem);color:var(--muted);margin:1.5rem auto 0;max-width:540px;opacity:0;animation:fadeUp .8s .65s ease forwards;}
-.hero-cta-wrap{margin-top:2.6rem;display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s .85s ease forwards;}
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--body);font-weight:500;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:.82rem 1.8rem;border-radius:2px;transition:all .22s;}
-.btn-amber{background:var(--amber);color:#0a0806;box-shadow:0 0 26px rgba(224,140,42,.33);}
-.btn-amber:hover{background:var(--amber-lt);transform:translateY(-2px);box-shadow:0 0 38px rgba(224,140,42,.5);}
-.btn-outline{border:1px solid var(--div);color:var(--cream);}
-.btn-outline:hover{border-color:var(--amber);color:var(--amber-lt);}
-.btn-red{border:1px solid rgba(255,60,60,.35);color:#ff5555;}
-.btn-red:hover{border-color:#ff4444;background:rgba(255,0,0,.08);}
-.btn-green{background:#25D366;color:#fff;box-shadow:0 0 30px rgba(37,211,102,.28);}
-.btn-green:hover{background:#20c05c;transform:translateY(-2px);box-shadow:0 0 44px rgba(37,211,102,.44);}
-
-.marquee-wrap{position:absolute;bottom:0;left:0;right:0;overflow:hidden;border-top:1px solid var(--div);padding:.6rem 0;background:rgba(10,8,6,.6);}
-.marquee{display:flex;width:max-content;animation:marquee 32s linear infinite;}
-.marquee span{font-family:var(--disp);font-size:.9rem;letter-spacing:.25em;color:var(--amber);padding:0 1.7rem;opacity:.5;}
-.marquee span.dot{color:var(--muted);letter-spacing:0;padding:0;}
-@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-
-section{padding:5rem 2rem;}
-.container{max-width:1080px;margin:0 auto;}
-.eyebrow{font-size:.66rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--amber);margin-bottom:.75rem;}
-.sec-title{font-family:var(--disp);font-size:clamp(2.1rem,5.5vw,3.6rem);letter-spacing:.04em;line-height:1.05;color:var(--cream);margin-bottom:1.1rem;}
-.sec-line{width:42px;height:2px;background:var(--amber);margin-bottom:1.8rem;}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-p.bt{color:var(--muted);font-size:.9rem;}
-p.bt+p.bt{margin-top:.9rem;}
-
-/* VIDEO */
-#video{background:var(--bg2);}
-.vid-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.2rem;}
-.vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
-.vid-card{position:relative;aspect-ratio:16/9;background:#1a1410;border:1px solid var(--div);border-radius:3px;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;}
-.vid-card:hover{border-color:rgba(224,140,42,.5);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.6);}
-.vid-card iframe{width:100%;height:100%;border:none;}
-.vid-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;background:linear-gradient(135deg,#1c1610,#0d0a07);}
-.vid-thumb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;background:#000;}
-.vid-thumb img{transition:opacity .25s;}
-.vid-card:hover .vid-thumb img{opacity:1!important;}
-.play-ic{width:52px;height:52px;background:var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 28px rgba(224,140,42,.4);transition:transform .2s;}
-.vid-card:hover .play-ic{transform:scale(1.1);}
-.play-ic svg{fill:#0a0806;width:19px;margin-left:4px;}
-.vid-label{font-size:.64rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:0 .8rem;}
-.vid-footer{margin-top:1.8rem;display:flex;align-items:center;justify-content:center;gap:1.1rem;flex-wrap:wrap;}
-.vid-footer p{font-size:.82rem;color:var(--muted);font-style:italic;}
-
-/* ESTILOS */
-#estilos{background:var(--bg);}
-.genre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2.8rem;}
-.genre-card{border:1px solid var(--div);border-radius:3px;padding:2rem 1.6rem;background:rgba(10,8,6,.6);position:relative;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s;}
-.genre-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber),transparent);transform:scaleX(0);transition:transform .4s;}
-.genre-card:hover{border-color:rgba(224,140,42,.4);transform:translateY(-3px);box-shadow:0 16px 44px rgba(0,0,0,.45);}
-.genre-card:hover::before{transform:scaleX(1);}
-.genre-emoji{font-size:2.2rem;margin-bottom:.8rem;}
-.genre-name{font-family:var(--disp);font-size:1.7rem;letter-spacing:.04em;color:var(--cream);margin-bottom:.5rem;}
-.genre-artists{font-size:.78rem;color:var(--amber);letter-spacing:.08em;margin-bottom:.7rem;}
-.genre-desc{font-size:.82rem;color:var(--muted);line-height:1.6;}
-.corp-strip{border:1px solid var(--div);border-radius:3px;padding:1.8rem 2.2rem;background:rgba(224,140,42,.04);display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
-.corp-strip p{font-size:.88rem;color:var(--muted);}
-.corp-strip p strong{color:var(--cream);}
-.corp-tags{display:flex;flex-wrap:wrap;gap:.5rem;}
-.corp-tag{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--div);color:var(--amber);padding:.25rem .6rem;border-radius:2px;opacity:.8;}
-
-/* ABOUT */
-#about{background:var(--bg2);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.pillar{border:1px solid var(--div);padding:1.2rem;border-radius:3px;background:rgba(224,140,42,.03);transition:border-color .25s,background .25s;}
-.pillar:hover{border-color:rgba(224,140,42,.4);background:rgba(224,140,42,.06);}
-.pillar-icon{font-size:1.4rem;margin-bottom:.45rem;}
-.pillar-title{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem;}
-.pillar p{font-size:.8rem;color:var(--muted);}
-
-/* FORMATOS */
-#formatos{background:var(--bg);}
-.format-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
-.format-card{border:1px solid var(--div);border-radius:3px;padding:1.8rem 1.6rem;background:rgba(10,8,6,.65);transition:border-color .3s,transform .3s;}
-.format-card:hover{border-color:rgba(224,140,42,.4);transform:translateY(-3px);}
-.format-card.highlight{border-color:rgba(224,140,42,.35);background:rgba(224,140,42,.04);}
-.format-num{font-family:var(--disp);font-size:3rem;color:var(--amber);opacity:.2;line-height:1;margin-bottom:.3rem;}
-.format-name{font-family:var(--disp);font-size:1.7rem;letter-spacing:.04em;color:var(--cream);margin-bottom:.3rem;}
-.format-sub{font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:.9rem;}
-.format-desc{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:.9rem;}
-.format-tracks{list-style:none;margin-bottom:.9rem;border-top:1px solid var(--div);padding-top:.8rem;}
-.format-tracks li{display:flex;align-items:baseline;gap:.5rem;padding:.38rem 0;border-bottom:1px solid rgba(224,140,42,.06);font-size:.8rem;color:var(--cream);opacity:.8;}
-.format-tracks li:hover{opacity:1;color:var(--amber-lt);}
-.ft-num{font-family:var(--disp);font-size:.68rem;color:var(--amber);opacity:.4;min-width:16px;}
-.ft-band{font-size:.7rem;color:var(--muted);margin-left:auto;}
-.format-options{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem;}
-.foption{font-size:.72rem;letter-spacing:.08em;padding:.22rem .6rem;border:1px solid var(--div);border-radius:2px;color:var(--muted);}
-.format-note{font-size:.78rem;color:var(--amber);opacity:.8;font-style:italic;}
-.setlist-note{margin-top:.6rem;font-size:.78rem;color:var(--muted);border-left:2px solid var(--amber);padding-left:.7rem;opacity:.85;}
-.pedido-box{border:1px dashed rgba(224,140,42,.35);border-radius:3px;padding:1.4rem 1.8rem;background:rgba(224,140,42,.03);display:flex;gap:1rem;align-items:flex-start;margin-top:1.8rem;}
-.pedido-icon{font-size:1.6rem;flex-shrink:0;}
-.pedido-title{font-family:var(--disp);font-size:1.1rem;letter-spacing:.04em;color:var(--amber);margin-bottom:.3rem;}
-.pedido-text{font-size:.83rem;color:var(--muted);line-height:1.6;}
-.pedido-text strong{color:var(--cream);}
-
-/* REPERTORIO */
-#repertorio{background:var(--bg2);}
-.rep-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
-.rep-col-header{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem;padding-bottom:.75rem;border-bottom:1px solid var(--div);}
-.badge{font-size:.61rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px;}
-.badge-banda{background:rgba(224,140,42,.15);color:var(--amber);}
-.badge-solo{background:rgba(100,180,255,.1);color:var(--blue-lt);}
-.rep-col-title{font-family:var(--disp);font-size:1.4rem;letter-spacing:.05em;color:var(--cream);}
-.track-list{list-style:none;}
-.track-list li{display:flex;align-items:baseline;gap:.65rem;padding:.68rem 0;border-bottom:1px solid rgba(224,140,42,.07);font-size:.85rem;color:var(--cream);opacity:.8;transition:opacity .2s,color .2s;}
-.track-list li:hover{opacity:1;color:var(--amber-lt);}
-.tnum{font-family:var(--disp);font-size:.7rem;color:var(--amber);opacity:.4;min-width:17px;}
-.tband{font-size:.72rem;color:var(--muted);margin-left:auto;white-space:nowrap;padding-left:.4rem;}
-.rep-special{margin-top:2.2rem;border:1px solid rgba(224,140,42,.3);border-radius:3px;padding:1.4rem 1.8rem;background:rgba(224,140,42,.04);display:flex;gap:1.1rem;align-items:flex-start;}
-.rep-special-icon{font-size:1.6rem;flex-shrink:0;}
-.rep-special-title{font-family:var(--disp);font-size:1.1rem;letter-spacing:.04em;color:var(--amber);margin-bottom:.35rem;}
-.rep-special-text{font-size:.82rem;color:var(--muted);line-height:1.6;}
-.rep-special-text strong{color:var(--cream);}
-
-/* COTIZADOR */
-#cotizador{background:var(--bg);}
-.cot-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
-.cot-form{display:flex;flex-direction:column;gap:1.4rem;}
-.cot-field label{display:block;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.55rem;}
-.cot-opts{display:flex;flex-wrap:wrap;gap:.45rem;}
-.cot-opt{background:transparent;border:1px solid var(--div);color:var(--muted);font-family:var(--body);font-size:.8rem;padding:.45rem 1rem;border-radius:2px;cursor:pointer;transition:all .2s;}
-.cot-opt:hover{border-color:rgba(224,140,42,.5);color:var(--cream);}
-.cot-opt.active{border-color:var(--amber);color:var(--amber);background:rgba(224,140,42,.08);}
-.cot-opt:disabled{opacity:.35;cursor:not-allowed;}
-
-/* Slider */
-.slider-wrap{display:flex;align-items:center;gap:1rem;}
-input[type=range]{-webkit-appearance:none;appearance:none;flex:1;height:3px;background:var(--div);border-radius:2px;outline:none;}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);cursor:pointer;box-shadow:0 0 8px rgba(224,140,42,.4);}
-.slider-val{font-family:var(--disp);font-size:1.15rem;color:var(--amber);white-space:nowrap;min-width:58px;text-align:right;}
-.slider-steps{display:flex;justify-content:space-between;margin-top:.3rem;padding:0 2px;}
-.slider-steps span{font-size:.65rem;color:var(--muted);opacity:.6;}
-
-/* Audio hint linked to attendees */
-.audio-hint{font-size:.73rem;color:var(--amber);background:rgba(224,140,42,.08);border:1px solid rgba(224,140,42,.25);border-radius:2px;padding:.3rem .7rem;margin-top:.55rem;display:none;}
-.audio-hint.show{display:inline-block;}
-.audio-hint.warn{color:#ff9944;background:rgba(255,140,50,.08);border-color:rgba(255,140,50,.3);}
-
-/* Result panel */
-.cot-result{border:1px solid rgba(224,140,42,.35);border-radius:3px;padding:2rem;background:rgba(224,140,42,.04);position:sticky;top:90px;}
-.cot-result-title{font-family:var(--disp);font-size:1.15rem;letter-spacing:.04em;color:var(--cream);margin-bottom:1.3rem;border-bottom:1px solid var(--div);padding-bottom:.8rem;}
-.cot-bkd{list-style:none;margin-bottom:1.4rem;}
-.cot-bkd li{display:flex;justify-content:space-between;align-items:baseline;padding:.5rem 0;border-bottom:1px solid rgba(224,140,42,.07);font-size:.83rem;}
-.cot-bkd li .lbl{color:var(--muted);}
-.cot-bkd li .val{color:var(--cream);font-weight:500;}
-.cot-total-row{display:flex;justify-content:space-between;align-items:baseline;padding:.9rem 0;}
-.cot-total-row .lbl{font-family:var(--disp);font-size:1rem;letter-spacing:.06em;color:var(--amber);}
-.cot-total-row .val{font-family:var(--disp);font-size:2rem;color:var(--amber);}
-.cot-disc{font-size:.72rem;color:var(--muted);font-style:italic;line-height:1.5;margin-top:.7rem;}
-.cot-wa-btn{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.2rem;width:100%;justify-content:center;}
-
-/* Apoyo Externo warning */
-.ext-warn{display:none;background:rgba(255,140,50,.06);border:1px solid rgba(255,140,50,.3);border-radius:3px;padding:1.1rem 1.3rem;margin-top:1rem;}
-.ext-warn.show{display:block;}
-.ext-warn p{font-size:.83rem;color:#ffaa66;line-height:1.55;}
-.ext-warn strong{color:var(--cream);}
-
-/* AMPLIFICACION */
-#amplificacion{background:var(--bg2);}
-.audio-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start;}
-.audio-card{border:1px solid rgba(100,180,255,.22);border-radius:3px;background:rgba(100,180,255,.04);padding:1.7rem;}
-.audio-card-title{font-family:var(--disp);font-size:1.1rem;letter-spacing:.04em;color:var(--cream);margin-bottom:.9rem;}
-.equip-list{list-style:none;margin-bottom:1.2rem;}
-.equip-list li{display:flex;align-items:center;gap:.65rem;padding:.44rem 0;border-bottom:1px solid rgba(224,140,42,.07);font-size:.82rem;color:var(--muted);}
-.audio-table{width:100%;border-collapse:collapse;margin-bottom:1.3rem;}
-.audio-table th{font-size:.64rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);padding:.52rem .65rem;text-align:left;border-bottom:1px solid var(--div);}
-.audio-table td{font-size:.81rem;color:var(--cream);padding:.58rem .65rem;border-bottom:1px solid rgba(224,140,42,.07);}
-.audio-table td:first-child{color:var(--muted);}
-.audio-table td.price{font-family:var(--disp);font-size:1.1rem;color:var(--amber);}
-.audio-table td.tbc{color:var(--muted);font-style:italic;font-size:.74rem;}
-.audio-note-sm{font-size:.73rem;color:var(--muted);font-style:italic;line-height:1.5;}
-.audio-note-sm strong{color:var(--cream);}
-
-/* UBICACION */
-#ubicacion{background:var(--bg);}
-.ubic-inner{display:flex;align-items:center;gap:4rem;}
-.ubic-text{flex:1;}
-.ubic-text p{color:var(--muted);font-size:.9rem;}
-.ubic-text p+p{margin-top:.8rem;}
-.ubic-map{flex:0 0 300px;border:1px solid var(--div);border-radius:3px;padding:2rem 1.6rem;text-align:center;background:rgba(224,140,42,.03);}
-.map-pin{font-size:2.1rem;margin-bottom:.5rem;}
-.map-city{font-family:var(--disp);font-size:2.5rem;color:var(--cream);letter-spacing:.06em;}
-.map-country{font-size:.7rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:.18rem;}
-.comunas{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center;}
-.ctag{font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);border:1px solid var(--div);padding:.16rem .45rem;border-radius:2px;opacity:.7;}
-
-/* CONTACTO */
-#contacto{text-align:center;padding:6rem 2rem;position:relative;}
-#contacto::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(224,140,42,.1) 0%,transparent 65%);pointer-events:none;}
-#contacto .sec-line{margin:0 auto 1.8rem;}
-.cta-sub{font-size:.88rem;color:var(--muted);max-width:430px;margin:0 auto 2.4rem;}
-.c-alts{margin-top:1.8rem;display:flex;justify-content:center;gap:1.6rem;flex-wrap:wrap;}
-.c-alt{display:flex;align-items:center;gap:.4rem;font-size:.74rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
-.c-alt:hover{color:var(--amber-lt);}
-
-footer{border-top:1px solid var(--div);padding:1.8rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;}
-.f-logo{font-family:var(--disp);font-size:1.2rem;letter-spacing:.08em;color:var(--amber);}
-.f-copy{font-size:.68rem;color:var(--muted);letter-spacing:.07em;}
-
-@media(max-width:900px){
-  nav{padding:.9rem 1.4rem;}
-  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,8,6,.97);padding:1.4rem;border-bottom:1px solid var(--div);gap:.9rem;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .vid-grid,.genre-grid,.format-grid,.audio-grid,.about-grid,.rep-grid,.cot-grid,.corp-strip,.ubic-inner{grid-template-columns:1fr;flex-direction:column;}
-  .ubic-map{flex:none;width:100%;}
-  .pillars{grid-template-columns:1fr;}
-  footer{flex-direction:column;text-align:center;}
-}
-@media(min-width:600px) and (max-width:900px){
-  .vid-grid{grid-template-columns:1fr 1fr;}
-  .genre-grid{grid-template-columns:1fr 1fr;}
-  .format-grid{grid-template-columns:1fr 1fr;}
-}
-
-/* ─── LOGOS ─────────────────────────────────────────────────────── */
-/* mix-blend-mode:screen hace que el fondo NEGRO sea transparente    */
-/* sin necesitar PNG — perfecto para logos 1, 2 y 3                 */
-.nav-logo-img{
-  height:38px;
-  width:auto;
-  mix-blend-mode:screen;
-  filter:brightness(1.15) contrast(1.05);
-  transition:filter .25s;
-  display:block;
-}
-.nav-logo-img:hover{filter:brightness(1.35) contrast(1.1);}
-
-.hero-watermark{
-  position:relative;
-  z-index:2;
-  width:clamp(260px,45vw,560px);
-  opacity:1;
-  mix-blend-mode:screen;
-  pointer-events:none;
-  filter:brightness(1.05) contrast(1.05);
-  opacity:0;
-  animation:fadeUp .9s .3s ease forwards;
-}
-
-/* About logo — círculo recortado, blend con el fondo */
-.about-logo-wrap{
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.8rem;
-}
-.about-logo-img{
-  width:clamp(140px,20vw,200px);
-  border-radius:50%;
-  mix-blend-mode:screen;
-  filter:brightness(1.1);
-  border:1px solid rgba(224,140,42,.15);
-  box-shadow:0 0 40px rgba(224,140,42,.15);
-  transition:transform .3s,box-shadow .3s;
-}
-.about-logo-img:hover{
-  transform:scale(1.04);
-  box-shadow:0 0 60px rgba(224,140,42,.28);
-}
-
-/* Pick logo — fondo beige aislado en card oscura */
-.pick-logo-card{
-  background:transparent;
-  border:none;
-  padding:0;
-  display:flex;flex-direction:column;
-  align-items:center;gap:.8rem;
-  transition:transform .25s;
-}
-.pick-logo-card:hover{ transform:translateY(-3px); }
-.pick-logo-img{
-  width:clamp(120px,16vw,180px);
-  mix-blend-mode:multiply;
-  filter:contrast(1.05) brightness(.95);
-  border-radius:6px;
-}
-.pick-logo-caption{
-  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--muted);text-align:center;
-}
-
-/* Footer logo imagen */
-.footer-logo-img{
-  height:44px;
-  width:auto;
-  mix-blend-mode:screen;
-  filter:brightness(1.1);
-}
-
-/* Banda de logos en hero */
-.hero-logo-badge{
-  position:relative;z-index:2;
-  margin-bottom:1.2rem;
-  opacity:0;
-  animation:fadeUp .8s .05s ease forwards;
-}
-.hero-badge-img{
-  height:clamp(52px,8vw,80px);
-  width:auto;
-  mix-blend-mode:screen;
-  filter:brightness(1.2);
-  drop-shadow:0 0 20px rgba(224,140,42,.4);
-}
+.hero-brand{margin:0 0 20px}
+.hero-brand img{width:112px;height:112px;object-fit:cover;border-radius:50%;border:2px solid rgba(230,176,74,.6);box-shadow:0 15px 40px #000}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.video-card{background:#101010;border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.3s}
+.video-card:hover{transform:translateY(-5px);border-color:#555}
+.video-thumb{height:245px;background-size:cover;background-position:center;position:relative}
+.video-thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.7))}
+.play,.yt{position:absolute;z-index:2}
+.play{left:50%;top:50%;transform:translate(-50%,-50%);width:65px;height:65px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;font-size:22px;padding-left:4px}
+.yt{right:15px;top:15px;background:#111d;color:#fff;padding:7px 10px;border-radius:999px;font-size:11px}
+.video-body{padding:22px}.video-body p{color:var(--muted);margin:6px 0 0;font-size:14px}
+.acoustic-stage{position:relative;overflow:hidden}
+.stage-label,.equipment-caption{position:absolute;left:25px;bottom:25px;padding:15px 18px;background:rgba(7,7,7,.82);border:1px solid rgba(230,176,74,.45);border-radius:14px;backdrop-filter:blur(8px)}
+.stage-label span,.equipment-caption span{display:block;color:var(--accent);font-size:10px;letter-spacing:.15em;font-weight:700}
+.stage-label b,.equipment-caption b{display:block;margin-top:4px}
+.roles{color:var(--accent2)!important;font-weight:700}
+.best{margin-top:17px;padding-top:15px;border-top:1px solid #292929;color:#aaa;font-size:12px}
+.duo-variant{display:flex;gap:12px;padding:14px 0;border-top:1px solid #282828}
+.duo-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#1c1810;color:var(--accent);font-size:20px;flex:none}
+.duo-variant b{display:block;font-size:14px}
+.duo-variant small{display:block;color:#999;font-size:12px;line-height:1.5;margin-top:4px}
+.compare{padding:12px 14px;border-radius:12px;background:#0a0a0a;border:1px solid #322b1d;color:#bbb;font-size:12px}
+.equipment-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.equipment{padding:18px;border:1px solid var(--line);border-radius:16px;background:#101010}
+.eq-icon{display:block;font-size:25px;margin-bottom:8px}
+.equipment b{display:block}.equipment small{display:block;color:#888;margin-top:3px}
+.equipment-photo{min-height:540px;border-radius:30px;background-position:center;background-size:cover;position:relative}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-logo img{width:62px;height:62px;object-fit:cover;border-radius:12px}
+@media(max-width:900px){.video-grid,.equipment-grid{grid-template-columns:1fr}.equipment-photo{min-height:400px}}
 </style>
 </head>
 <body>
-
-
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">A Raz de Cuerda</div>
-  <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></div>
-  <div class="nav-links">
-    <a href="#video">Videos</a>
-    <a href="#estilos">Estilos</a>
-    <a href="#formatos">Formatos</a>
-    <a href="#repertorio">Repertorio</a>
-    <a href="#cotizador">Cotizar</a>
-    <a href="#repertorio">Repertorio</a>
-    <a href="#amplificacion">Audio</a>
-    <a href="#contacto" class="nav-cta">Reservar</a>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#inicio">A RAZ <span>DE CUERDA</span></a>
+    <div class="nav-links">
+      <a href="#videos">Videos</a><a href="#estilos">Estilos</a><a href="#formatos">Formatos</a><a href="#repertorio">Repertorio</a><a href="#cotizador">Cotizar</a>
+    </div>
+    <a class="btn primary" href="https://wa.me/56964223619?text=Hola%21%20Me%20interesa%20contratar%20a%20A%20Raz%20de%20Cuerda%20para%20un%20evento.">Reservar</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-tag">Rock Cl&#225;sico Ac&#250;stico &middot; Santiago, Chile</div>
-  <!-- Watermark / logo central en hero -->
-  <img src="logo-bold-red.jpg" alt="A Raz de Cuerda" class="hero-watermark" aria-hidden="false"/>
-  <p class="hero-subtitle">T&#250; defines la direcci&#243;n art&#237;stica. Nosotros la traducimos en una experiencia sonora inolvidable.</p>
-  <div class="hero-cta-wrap">
-    <a class="btn btn-amber" href="https://wa.me/56964223619?text=Hola!%20Me%20interesa%20contratar%20a%20A%20Raz%20de%20Cuerda%20para%20un%20evento." target="_blank">
-      <svg width="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.857L0 24l6.303-1.496A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.373l-.36-.214-3.737.887.922-3.62-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
-      Reservar
-    </a>
-    <a class="btn btn-outline" href="#cotizador">Cotizar ahora</a>
-    <a class="btn btn-outline" href="#video"><svg width="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Ver en acci&#243;n</a>
-  </div>
-  <div class="marquee-wrap">
-    <div class="marquee">
-      <span>Rock &amp; Grunge</span><span class="dot">&middot;</span><span>The Beatles</span><span class="dot">&middot;</span><span>Audioslave</span><span class="dot">&middot;</span><span>Rock en Espa&#241;ol</span><span class="dot">&middot;</span><span>Foo Fighters</span><span class="dot">&middot;</span><span>Soda Stereo</span><span class="dot">&middot;</span><span>Pearl Jam</span><span class="dot">&middot;</span><span>Pink Floyd</span><span class="dot">&middot;</span><span>Creedence</span><span class="dot">&middot;</span>
-      <span>Rock &amp; Grunge</span><span class="dot">&middot;</span><span>The Beatles</span><span class="dot">&middot;</span><span>Audioslave</span><span class="dot">&middot;</span><span>Rock en Espa&#241;ol</span><span class="dot">&middot;</span><span>Foo Fighters</span><span class="dot">&middot;</span><span>Soda Stereo</span><span class="dot">&middot;</span><span>Pearl Jam</span><span class="dot">&middot;</span><span>Pink Floyd</span><span class="dot">&middot;</span><span>Creedence</span><span class="dot">&middot;</span>
+<header id="inicio" class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow">Rock clásico acústico · Santiago, Chile</div>
+    <div class="hero-brand"><img src="https://gunyrock-cpu.github.io/A-Raz-de-Cuerda/logo-pick.jpg" alt="Logo A Raz de Cuerda"></div>
+    <h1>ROCK QUE<br>SE SIENTE.</h1>
+    <p class="lead">Guitarras acústicas, voces, percusión y el sonido de una banda en vivo. Rock con energía, pero en un formato cercano, elegante y adaptable.</p>
+    <div class="actions">
+      <a class="btn primary" href="#cotizador">Cotizar mi evento</a>
+      <a class="btn ghost" href="#estilos">Descubrir la propuesta</a>
     </div>
   </div>
-</section>
+</header>
 
-<!-- VIDEO -->
-<section id="video">
+<div class="ticker"><div class="ticker-track">Rock & Grunge · The Beatles · Audioslave · Rock en Español · Foo Fighters · Soda Stereo · Pearl Jam · Pink Floyd · Creedence · &nbsp;&nbsp;&nbsp; Rock & Grunge · The Beatles · Audioslave · Rock en Español · Foo Fighters · Soda Stereo · Pearl Jam · Pink Floyd · Creedence ·</div></div>
+
+
+<section class="section video-section" id="videos">
   <div class="container">
-    <div class="vid-header reveal">
-      <div>
-        <div class="eyebrow">En escena</div>
-        <h2 class="sec-title">M&#237;ranos antes<br>de decidir</h2>
-        <div class="sec-line"></div>
-        <p style="font-size:.74rem;color:var(--muted)">&#9654; Clic para reproducir &nbsp;&middot;&nbsp; Bot&#243;n &#8599; YT o doble clic para abrir en YouTube</p>
-      </div>
-      <a class="btn btn-red" href="https://youtube.com/@arazdecuerda" target="_blank">
-        <svg width="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        youtube.com/@arazdecuerda
+    <div class="section-head">
+      <div><div class="eyebrow">En escena</div><h2>Míranos antes<br>de decidir.</h2></div>
+      <p>La mejor forma de entender A Raz de Cuerda es escucharnos. Conservamos los videos y accesos directos a YouTube de la página original, pero ahora presentados como una experiencia audiovisual.</p>
+    </div>
+    <div class="video-grid">
+      <a class="video-card" href="https://youtu.be/GsGHRFHCt3M" target="_blank" rel="noopener">
+        <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/GsGHRFHCt3M/maxresdefault.jpg')">
+          <span class="play">▶</span><span class="yt">↗ YouTube</span>
+        </div>
+        <div class="video-body"><span class="tag">Video 01</span><h3>Rock acústico en vivo</h3><p>Haz clic para reproducir directamente en YouTube.</p></div>
+      </a>
+      <a class="video-card" href="https://youtu.be/4BrAEKLCGVE" target="_blank" rel="noopener">
+        <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/4BrAEKLCGVE/maxresdefault.jpg')">
+          <span class="play">▶</span><span class="yt">↗ YouTube</span>
+        </div>
+        <div class="video-body"><span class="tag">Video 02</span><h3>Formato acústico</h3><p>Escucha cómo cambia el sonido según la configuración.</p></div>
+      </a>
+      <a class="video-card" href="https://youtu.be/RkgxLOeJ1hs" target="_blank" rel="noopener">
+        <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/RkgxLOeJ1hs/maxresdefault.jpg')">
+          <span class="play">▶</span><span class="yt">↗ YouTube</span>
+        </div>
+        <div class="video-body"><span class="tag">Video 03</span><h3>Rock clásico en vivo</h3><p>Otro registro real de la banda para conocer la propuesta.</p></div>
       </a>
     </div>
-    <div class="vid-grid reveal">
-      <div class="vid-card" data-yturl="https://youtu.be/GsGHRFHCt3M">
-        <div class="vid-thumb" onclick="playVideo(this.parentElement)">
-          <img src="https://img.youtube.com/vi/GsGHRFHCt3M/hqdefault.jpg" alt="video" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85"/>
-          <div class="play-ic" style="position:relative;z-index:2"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <a href="https://youtu.be/GsGHRFHCt3M" target="_blank" onclick="event.stopPropagation()" style="position:absolute;top:.45rem;right:.45rem;z-index:3;font-size:.62rem;color:#ff6666;background:rgba(0,0,0,.65);padding:.18rem .42rem;border-radius:2px">&#8599; YT</a>
-        </div>
-        <iframe style="display:none;position:absolute;inset:0;width:100%;height:100%;border:none" data-src="https://www.youtube.com/embed/GsGHRFHCt3M?autoplay=1&rel=0&modestbranding=1" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-      </div>
-      <div class="vid-card" data-yturl="https://youtu.be/4BrAEKLCGVE">
-        <div class="vid-thumb" onclick="playVideo(this.parentElement)">
-          <img src="https://img.youtube.com/vi/4BrAEKLCGVE/hqdefault.jpg" alt="video" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85"/>
-          <div class="play-ic" style="position:relative;z-index:2"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <a href="https://youtu.be/4BrAEKLCGVE" target="_blank" onclick="event.stopPropagation()" style="position:absolute;top:.45rem;right:.45rem;z-index:3;font-size:.62rem;color:#ff6666;background:rgba(0,0,0,.65);padding:.18rem .42rem;border-radius:2px">&#8599; YT</a>
-        </div>
-        <iframe style="display:none;position:absolute;inset:0;width:100%;height:100%;border:none" data-src="https://www.youtube.com/embed/4BrAEKLCGVE?autoplay=1&rel=0&modestbranding=1" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-      </div>
-      <div class="vid-card" data-yturl="https://youtu.be/RkgxLOeJ1hs">
-        <div class="vid-thumb" onclick="playVideo(this.parentElement)">
-          <img src="https://img.youtube.com/vi/RkgxLOeJ1hs/hqdefault.jpg" alt="video" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85"/>
-          <div class="play-ic" style="position:relative;z-index:2"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <a href="https://youtu.be/RkgxLOeJ1hs" target="_blank" onclick="event.stopPropagation()" style="position:absolute;top:.45rem;right:.45rem;z-index:3;font-size:.62rem;color:#ff6666;background:rgba(0,0,0,.65);padding:.18rem .42rem;border-radius:2px">&#8599; YT</a>
-        </div>
-        <iframe style="display:none;position:absolute;inset:0;width:100%;height:100%;border:none" data-src="https://www.youtube.com/embed/RkgxLOeJ1hs?autoplay=1&rel=0&modestbranding=1" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-      </div>
-    </div>    </div>
-    <div class="vid-footer reveal">
-      <p>&#191;Quieres ver m&#225;s presentaciones?</p>
-      <a class="btn btn-red" href="https://youtube.com/@arazdecuerda" target="_blank">
-        <svg width="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        Ver canal completo
-      </a>
-    </div>
+    <div style="text-align:center;margin-top:28px"><a class="btn ghost" href="https://www.youtube.com/@arazdecuerda" target="_blank" rel="noopener">Ver canal completo en YouTube ↗</a></div>
   </div>
 </section>
 
-<!-- ESTILOS -->
-<section id="estilos">
+<section class="section" id="estilos">
   <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">Nuestra m&#250;sica</div>
-      <h2 class="sec-title">Tres estilos,<br>una experiencia</h2>
-      <div class="sec-line"></div>
-      <p class="bt" style="max-width:640px;margin-bottom:2.2rem">Interpretamos rock cl&#225;sico con un formato ac&#250;stico vers&#225;til, adaptable a cualquier ambiente. T&#250; defines la direcci&#243;n art&#237;stica; nosotros nos encargamos de traducirla en una experiencia sonora memorable.</p>
+    <div class="section-head">
+      <div><div class="eyebrow">Nuestra música</div><h2>Tres estilos.<br>Una experiencia.</h2></div>
+      <p>Rock clásico reinterpretado en formato acústico, pensado para adaptarse al ambiente sin perder personalidad.</p>
     </div>
-    <div class="genre-grid reveal">
-      <div class="genre-card">
-        <div class="genre-emoji">&#9889;</div>
-        <div class="genre-name">Rock &amp; Grunge</div>
-        <div class="genre-artists">Foo Fighters &middot; Audioslave &middot; Collective Soul &middot; Incubus &middot; STP</div>
-        <p class="genre-desc">La energ&#237;a del rock de los 90 reinterpretada en clave ac&#250;stica. Everlong, My Hero, Be Yourself, Creep &#8212; rock que conecta sin importar el p&#250;blico ni el espacio.</p>
-      </div>
-      <div class="genre-card">
-        <div class="genre-emoji">&#127911;</div>
-        <div class="genre-name">The Beatles &amp; Cl&#225;sicos</div>
-        <div class="genre-artists">The Beatles &middot; Eric Clapton &middot; R.E.M. &middot; Chris Isaak &middot; Cat Stevens</div>
-        <p class="genre-desc">Desde Something hasta Hotel California. Canciones que trascienden generaciones y que funcionan en cualquier tipo de evento, desde una reuni&#243;n &#237;ntima hasta un hito corporativo.</p>
-      </div>
-      <div class="genre-card">
-        <div class="genre-emoji">&#127997;</div>
-        <div class="genre-name">Rock en Espa&#241;ol</div>
-        <div class="genre-artists">Soda Stereo &middot; Ataque 77 &middot; Los Prisioneros &middot; V&#237;ctor Jara</div>
-        <p class="genre-desc">El rock latinoamericano en su formato m&#225;s &#237;ntimo. Canciones que el p&#250;blico local reconoce de inmediato y que elevan el nivel emocional del ambiente.</p>
-      </div>
+    <div class="grid grid3">
+      <article class="card"><div class="photo" style="background-image:url('https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><span class="tag">01 · Energía</span><h3>Rock & Grunge</h3><p>Foo Fighters · Audioslave · Soundgarden · Pearl Jam · STP. La energía de los 90 llevada a guitarra acústica, voz y percusión con carácter.</p></div></article>
+      <article class="card"><div class="photo" style="background-image:url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><span class="tag">02 · Clásicos</span><h3>The Beatles</h3><p>The Beatles · Eric Clapton · The Eagles · Pink Floyd · Cat Stevens. Canciones que cruzan generaciones y funcionan en cualquier evento.</p></div></article>
+      <article class="card"><div class="photo" style="background-image:url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><span class="tag">03 · Identidad</span><h3>Rock en Español</h3><p>Soda Stereo · Ataque 77 · Divididos · Víctor Jara. El repertorio latinoamericano en su versión más íntima.</p></div></article>
     </div>
-    <!-- Logo pick: identidad visual de la banda -->
-    <div style="margin-bottom:2.5rem;display:flex;justify-content:center">
-      <div class="pick-logo-card reveal" style="max-width:280px;text-align:center">
-        <img src="logo-pick.jpg" alt="A Raz de Cuerda - identidad visual" class="pick-logo-img"/>
-        <p class="pick-logo-caption">Identidad visual de la banda</p>
-      </div>
-    </div>
+  </div>
+</section>
 
-    <div class="corp-strip reveal">
-      <div>
-        <p>Especialmente aptos para <strong>hitos corporativos, reuniones privadas, eventos de empresa, colegios, universidades</strong> y celebraciones institucionales que buscan una experiencia musical de nivel sin los requerimientos log&#237;sticos de una banda amplificada.</p>
-        <p style="margin-top:.7rem">Formato ac&#250;stico = volumen controlado, montaje m&#237;nimo, adaptable a horarios y espacios de cualquier tipo.</p>
-      </div>
-      <div class="corp-tags">
-        <span class="corp-tag">Lanzamientos de producto</span>
-        <span class="corp-tag">Celebraciones de empresa</span>
-        <span class="corp-tag">Cenas corporativas</span>
-        <span class="corp-tag">Activaciones de marca</span>
-        <span class="corp-tag">Actos de colegios</span>
-        <span class="corp-tag">Graduaciones</span>
-        <span class="corp-tag">Eventos universitarios</span>
-        <span class="corp-tag">Team building</span>
-        <span class="corp-tag">Cocteles</span>
-        <span class="corp-tag">Premios internos</span>
+<section class="section">
+  <div class="container split">
+    <div class="big-photo acoustic-stage" style="background-image:url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=85')">
+      <div class="stage-label"><span>ACÚSTICO</span><b>Guitarra · Voz · Percusión</b></div>
+    </div>
+    <div>
+      <div class="eyebrow">Más que una banda</div><h2>La música es parte del evento.</h2>
+      <p class="lead">Un formato acústico elegante, versátil y diseñado para elevar cualquier espacio sin dominarlo.</p>
+      <div class="feature-list">
+        <div class="feature"><img src="https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&w=200&q=80"><div><b>Rock con energía</b><span>No es fondo musical: conecta desde el primer acorde.</span></div></div>
+        <div class="feature"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=200&q=80"><div><b>Volumen controlado</b><span>Acústico adaptable que permite conversar y disfrutar.</span></div></div>
+        <div class="feature"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=200&q=80"><div><b>Repertorio conocido</b><span>Canciones reconocibles que enganchan rápidamente.</span></div></div>
+        <div class="feature"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=200&q=80"><div><b>Formato versátil</b><span>Bar, café, terraza, jardín, aula o salón.</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<section class="section" id="formatos">
   <div class="container">
-    <div class="about-grid">
-      <div class="reveal">
-        <div class="about-logo-wrap">
-          <img src="logo-square-red.jpg" alt="A Raz de Cuerda logo" class="about-logo-img"/>
+    <div class="section-head"><div><div class="eyebrow">¿Cómo nos contratan?</div><h2>Formatos<br>disponibles.</h2></div><p>Elige la configuración según el tamaño del evento, el espacio y la experiencia musical que quieres generar.</p></div>
+    <div class="grid grid4 format-grid">
+      <article class="card format-card">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body"><div class="format-number">3</div><h3>Trío</h3><p class="roles">Guitarra · Bajo / 2ª guitarra · Percusión + voz</p><p>El formato más completo. Permite mayor riqueza armónica, dos guitarras simultáneas y temas que necesitan más capas.</p><div class="best">Ideal para · Matrimonios · Corporativos · Eventos privados</div></div>
+      </article>
+      <article class="card format-card featured-format">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body"><div class="format-number">2</div><h3>Dúo</h3><p class="roles">Dos músicos · Dos experiencias distintas</p>
+          <div class="duo-variant"><span class="duo-icon guitar">♬</span><div><b>Guitarra lead + guitarra/voz</b><small>Más melódico y armónico. La segunda guitarra aporta respuestas, arreglos y líneas instrumentales. Recomendado cuando quieres que la música tenga mayor riqueza de guitarras.</small></div></div>
+          <div class="duo-variant"><span class="duo-icon percussion">◉</span><div><b>Percusión + guitarra/voz</b><small>Más rítmico y con groove. La percusión aporta pulso, dinámica y energía, haciendo que el público sienta más movimiento.</small></div></div>
+          <div class="compare">¿Buscas <b>melodía y armonía</b>? Lead. &nbsp; ¿Buscas <b>ritmo y movimiento</b>? Percusión.</div>
         </div>
-        <div class="eyebrow">Qui&#233;nes somos</div>
-        <h2 class="sec-title">M&#225;s que una<br>banda</h2>
-        <div class="sec-line"></div>
-        <p class="bt">Somos un proyecto ac&#250;stico de rock cl&#225;sico que reinterpreta grandes canciones con un formato cercano, vers&#225;til y dise&#241;ado para elevar cualquier espacio sin dominarlo.</p>
-        <p class="bt">Nuestro sonido no es ac&#250;stico &#171;suave&#187;: es rock con energ&#237;a contenida, el tipo de m&#250;sica que hace que la gente mueva la cabeza y pida otra ronda.</p>
-        <p class="bt">Trabajamos con el organizador para que la m&#250;sica sea parte del evento, no un elemento separado.</p>
-      </div>
-      <div class="pillars reveal">
-        <div class="pillar"><div class="pillar-icon">&#127928;</div><div class="pillar-title">Rock con energ&#237;a</div><p>No es fondo musical: rock cl&#225;sico que conecta desde el primer acorde.</p></div>
-        <div class="pillar"><div class="pillar-icon">&#128266;</div><div class="pillar-title">Volumen controlado</div><p>Ac&#250;stico adaptable que no invade el espacio ni interrumpe la conversaci&#243;n.</p></div>
-        <div class="pillar"><div class="pillar-icon">&#127919;</div><div class="pillar-title">Repertorio conocido</div><p>Canciones que todos reconocen: engancha r&#225;pido sin importar el p&#250;blico.</p></div>
-        <div class="pillar"><div class="pillar-icon">&#128205;</div><div class="pillar-title">Formato vers&#225;til</div><p>Bar, caf&#233;, terraza, jard&#237;n, aula, sal&#243;n &#8212; casi cualquier lugar.</p></div>
-      </div>
+      </article>
+      <article class="card format-card">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body"><div class="format-number">1</div><h3>Solo</h3><p class="roles">Guitarra acústica · Voz · Base discreta</p><p>La opción más íntima. Ideal para recepciones, cocteles, espacios pequeños o cuando se necesita presencia musical sin dominar la conversación.</p><div class="best">Ideal para · Cocteles · Recepciones · Cafés</div></div>
+      </article>
+      <article class="card format-card">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body"><div class="format-number">3+</div><h3>Trío + invitado</h3><p class="roles">Cuatro músicos · Formato especial</p><p>Se suma un músico invitado —solista, teclista o segundo vocalista— para ampliar el repertorio y la potencia del show.</p><div class="best">Ideal para · Matrimonios · Eventos VIP · Cumpleaños especiales</div></div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- FORMATOS -->
-<section id="formatos">
+<section class="section" id="cotizador">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">Calcula tu evento</div><h2>Cotizador<br>instantáneo.</h2>
+      <p class="lead">Una referencia rápida para visualizar el valor base de tu presentación. La cotización formal se confirma por WhatsApp.</p>
+      <div class="card" style="margin-top:30px"><div class="card-body"><span class="tag">También podemos</span><h3>Preparar tu canción.</h3><p>¿Hay una canción especial que no está en la lista? Con al menos un mes de anticipación podemos preparar un arreglo especial.</p></div></div>
+    </div>
+    <div class="price-box">
+      <div class="controls">
+        <div class="control"><label>1. Formato</label><div class="options" data-group="musicians">
+          <button class="option active" data-value="1">Solo (1)</button><button class="option" data-value="2">Dúo (2)</button><button class="option" data-value="3">Trío (3)</button><button class="option" data-value="4">Trío + invitado (4)</button>
+        </div></div>
+        <div class="control"><label>2. Duración — <span id="minutesLabel">45</span> min</label><div class="options" data-group="minutes">
+          <button class="option active" data-value="45">45 min</button><button class="option" data-value="60">60 min</button><button class="option" data-value="75">75 min</button><button class="option" data-value="90">90 min</button>
+        </div></div>
+        <div class="control"><label>3. Amplificación</label><div class="options" data-group="amp">
+          <button class="option active" data-value="0">Sin amplificación</button><button class="option" data-value="40000">Set básico +$40.000</button><button class="option" data-value="80000">2× MAX 15 +$80.000</button>
+        </div></div>
+        <div class="control"><label>4. Asistentes — <span id="peopleLabel">50</span></label><input id="people" type="range" min="10" max="250" step="10" value="50"></div>
+        <div class="control"><label>5. Ubicación</label><div class="options" data-group="zone">
+          <button class="option active" data-value="0">Dentro de Vespucio</button><button class="option" data-value="0">Fuera de Vespucio</button><button class="option" data-value="20000">Zona rural</button>
+        </div></div>
+      </div>
+      <div class="total"><small>ESTIMACIÓN BASE</small><strong id="total">$45.000</strong><small>Valor orientativo. $1.000 por minuto y músico + adicionales seleccionados.</small></div>
+      <a class="btn primary" style="width:100%;margin-top:15px" href="https://wa.me/56964223619?text=Hola%21%20Quiero%20cotizar%20un%20evento%20con%20A%20Raz%20de%20Cuerda.">Consultar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section audio-visual">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">El sonido también importa</div><h2>Acústico no significa<br>“sin equipo”.</h2>
+      <p class="lead">La guitarra acústica, los micrófonos y la percusión necesitan una configuración adecuada para que el sonido conserve claridad, cuerpo y naturalidad.</p>
+      <div class="equipment-grid">
+        <div class="equipment"><span class="eq-icon">🎙</span><b>Micrófonos</b><small>Voz y captación del instrumento.</small></div>
+        <div class="equipment"><span class="eq-icon">🎸</span><b>Guitarra acústica</b><small>El centro del sonido de la banda.</small></div>
+        <div class="equipment"><span class="eq-icon">🥁</span><b>Percusión</b><small>Groove y dinámica sin una batería invasiva.</small></div>
+        <div class="equipment"><span class="eq-icon">🔊</span><b>Amplificación</b><small>Proyección proporcional al espacio.</small></div>
+      </div>
+    </div>
+    <div class="equipment-photo" style="background-image:url('https://images.unsplash.com/photo-1519508234439-4f23643125c7?auto=format&fit=crop&w=1200&q=85')">
+      <div class="equipment-caption"><span>SONIDO EN VIVO</span><b>Micrófonos · DI · Mezcla · Monitoreo</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="repertorio">
   <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">&#191;C&#243;mo nos contratan?</div>
-      <h2 class="sec-title">Formatos<br>disponibles</h2>
-      <div class="sec-line"></div>
-      <p class="bt" style="max-width:680px;margin-bottom:2rem">Podemos presentarnos de varias formas seg&#250;n el tipo de evento, el espacio y el presupuesto. Cada formato habilita un setlist diferente. Aqu&#237; te explicamos cu&#225;l es cu&#225;l, con ejemplos reales de canciones.</p>
-    </div>
-    <div class="format-grid reveal">
-
-      <!-- TRIO -->
-      <div class="format-card highlight">
-        <div class="format-num">3</div>
-        <div class="format-name">Formato Tr&#237;o</div>
-        <div class="format-sub">Guitarra &middot; Bajo / 2&#170; guitarra &middot; Percusi&#243;n + Voz</div>
-        <p class="format-desc">El formato completo. <strong style="color:var(--cream)">&#218;nica configuraci&#243;n que permite temas con armon&#237;as complejas o dos guitarras simult&#225;neas</strong>, como Something o Wicked Game, que simplemente no funcionan igual solo con una guitarra. Si los Beatles son importantes para tu evento, este es el formato.</p>
-        <div class="format-options"><span class="foption">Eventos privados</span><span class="foption">Matrimonios</span><span class="foption">Corporativos</span><span class="foption">Bares</span></div>
+    <div class="section-head"><div><div class="eyebrow">Lista de canciones</div><h2>Repertorio<br>estándar.</h2></div><p>Una selección pensada para que el público reconozca, conecte y disfrute desde el primer tema.</p></div>
+    <div class="repertoire">
+      <div class="song-card"><h3>Banda · Trío / Dúo</h3>
+        <div class="song"><b>Drive</b><span>Incubus</span></div><div class="song"><b>My Hero</b><span>Foo Fighters</span></div><div class="song"><b>Creep</b><span>Stone Temple Pilots</span></div><div class="song"><b>Everlong</b><span>Foo Fighters</span></div><div class="song"><b>Be Yourself</b><span>Audioslave</span></div><div class="song"><b>Losing My Religion</b><span>R.E.M.</span></div><div class="song"><b>Don't Let Me Down</b><span>The Beatles</span></div><div class="song"><b>Wicked Game</b><span>Chris Isaak</span></div><div class="song"><b>Something</b><span>The Beatles</span></div><div class="song"><b>Arrancacorazones</b><span>Ataque 77</span></div>
       </div>
-
-      <!-- DUO -->
-      <div class="format-card">
-        <div class="format-num">2</div>
-        <div class="format-name">Formato D&#250;o</div>
-        <div class="format-sub">Dos m&#250;sicos · Dos variantes</div>
-        <p class="format-desc">M&#225;s liviano log&#237;sticamente, sin perder la energ&#237;a. Existen dos variantes:<br><strong style="color:var(--cream)">A)</strong> Guitarra lead + Guitarra y voz &#8212; m&#225;s mel&#243;dico y arm&#243;nico.<br><strong style="color:var(--cream)">B)</strong> Percusi&#243;n + Guitarra y voz &#8212; m&#225;s r&#237;tmico y con groove.</p>
-        <div class="format-options">
-          <span class="foption" style="border-color:rgba(224,140,42,.4);color:var(--amber)">&#127928; Lead + Guitarra/voz</span>
-          <span class="foption" style="border-color:rgba(224,140,42,.4);color:var(--amber)">&#129345; Percusi&#243;n + Guitarra/voz</span>
-        </div>
-        <div class="format-options">
-          <span class="foption">Eventos privados</span><span class="foption">Matrimonios</span><span class="foption">Corporativos</span><span class="foption">Bares</span>
-        </div>
-      </div>
-
-      <!-- SOLO -->
-      <div class="format-card">
-        <div class="format-num">1</div>
-        <div class="format-name">Formato Solo</div>
-        <div class="format-sub">Guitarra ac&#250;stica &middot; Voz &middot; Base de fondo</div>
-        <p class="format-desc">Un m&#250;sico en escena con una base pregrabada discreta. La opci&#243;n m&#225;s &#237;ntima: perfecta para espacios reducidos, fondos musicales suaves, cocteles o cuando se necesita presencia sin volumen.</p>
-        <div class="format-options"><span class="foption">Cocteles</span><span class="foption">Recepciones</span><span class="foption">Espacios peque&#241;os</span></div>
-      </div>
-
-      <!-- TRIO + INVITADO -->
-      <div class="format-card highlight">
-        <div class="format-num">3<span style="font-size:1.5rem;color:var(--amber)">+</span></div>
-        <div class="format-name">Tr&#237;o + Invitado</div>
-        <div class="format-sub">Formato especial &middot; Cuatro m&#250;sicos</div>
-        <p class="format-desc">Se incorpora un m&#250;sico invitado al tr&#237;o base &#8212; solista, teclista o segundo vocalista &#8212; ampliando el repertorio y la potencia del show para eventos que quieren ir un paso m&#225;s all&#225;.</p>
-        <p class="format-note" style="margin-bottom:.9rem">El miembro extra lleva un cargo adicional que se acuerda seg&#250;n el perfil del invitado.</p>
-        <div class="format-options"><span class="foption">Matrimonios</span><span class="foption">Eventos VIP</span><span class="foption">Cumplea&#241;os especiales</span></div>
-      </div>
-
-    </div>
-    <div class="pedido-box reveal">
-      <div class="pedido-icon">&#127926;</div>
-      <div>
-        <div class="pedido-title">Temas a pedido</div>
-        <p class="pedido-text">&#191;Tu canci&#243;n no est&#225; en nuestra lista? Podemos prepararla con <strong>al menos un mes de antelaci&#243;n</strong>. El valor adicional depende de la dificultad del arreglo y el tiempo requerido. Ideal para <strong>primera canci&#243;n de matrimonio, dedicatoria especial o cumplea&#241;os con significado</strong>. Cons&#250;ltanos antes de reservar.</p>
+      <div class="song-card"><h3>Solista · Guitarra y voz</h3>
+        <div class="song"><b>Father and Son</b><span>Cat Stevens</span></div><div class="song"><b>Wild World</b><span>Cat Stevens</span></div><div class="song"><b>Black Hole Sun</b><span>Soundgarden</span></div><div class="song"><b>Spaghetti del Rock</b><span>Divididos</span></div><div class="song"><b>Yesterday</b><span>The Beatles</span></div><div class="song"><b>Here Comes the Sun</b><span>The Beatles</span></div><div class="song"><b>Hotel California</b><span>The Eagles</span></div><div class="song"><b>Te Recuerdo Amanda</b><span>Víctor Jara</span></div><div class="song"><b>Un Misil en Mi Placard</b><span>Soda Stereo</span></div><div class="song"><b>Wish You Were Here</b><span>Pink Floyd</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COTIZADOR -->
-<section id="cotizador">
+<section class="section">
   <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">Calcula tu evento</div>
-      <h2 class="sec-title">Cotizador<br>instant&#225;neo</h2>
-      <div class="sec-line"></div>
-      <p class="bt" style="max-width:580px;margin-bottom:2rem">Selecciona los par&#225;metros y obt&#233;n una estimaci&#243;n al instante. La base es <strong style="color:var(--cream)">$1.000 por minuto</strong> con un m&#237;nimo de 45 minutos por m&#250;sico.</p>
-    </div>
-    <div class="cot-grid reveal">
-
-      <!-- FORM LEFT -->
-      <div class="cot-form">
-
-        <div class="cot-field">
-          <label>1. Formato</label>
-          <div class="cot-opts">
-            <button class="cot-opt" onclick="pick(this,'formato',1)">Solo (1)</button>
-            <button class="cot-opt" onclick="pick(this,'formato',2)">D&#250;o (2)</button>
-            <button class="cot-opt active" onclick="pick(this,'formato',3)">Tr&#237;o (3)</button>
-            <button class="cot-opt" onclick="pick(this,'formato',4)">Tr&#237;o + Invitado (4)</button>
-          </div>
-        </div>
-
-        <div class="cot-field">
-          <label>2. Duraci&#243;n <small style="color:var(--muted);font-size:.65rem;font-weight:300">(m&#237;n. 45 min &middot; $1.000/min por m&#250;sico)</small></label>
-          <div class="cot-opts">
-            <button class="cot-opt active" onclick="pick(this,'duracion',45)">45 min</button>
-            <button class="cot-opt" onclick="pick(this,'duracion',60)">60 min</button>
-            <button class="cot-opt" onclick="pick(this,'duracion',75)">75 min</button>
-            <button class="cot-opt" onclick="pick(this,'duracion',90)">90 min</button>
-          </div>
-        </div>
-
-        <div class="cot-field">
-          <label>3. Tipo de espacio</label>
-          <div class="cot-opts">
-            <button class="cot-opt active" onclick="pick(this,'espacio','cerrado')">
-              &#127968; Espacio cerrado
-            </button>
-            <button class="cot-opt" onclick="pick(this,'espacio','abierto')">
-              &#127795; Aire libre / Exterior
-            </button>
-          </div>
-          <div style="font-size:.72rem;color:var(--muted);margin-top:.45rem;line-height:1.45">
-            Cerrado (sala, salon, bar, auditorio) &middot; Abierto (terraza, jardin, espacio al aire libre)
-          </div>
-        </div>
-
-        <div class="cot-field">
-          <label>4. Asistentes estimados &mdash; <span id="att-lbl" style="color:var(--cream)">50</span> personas</label>
-          <div class="slider-wrap">
-            <input type="range" id="att-sl" min="50" max="250" step="50" value="50" oninput="updAtt()"/>
-            <span class="slider-val" id="att-vl">50</span>
-          </div>
-          <div class="slider-steps">
-            <span>50</span><span>100</span><span>150</span><span>200</span><span>250</span>
-          </div>
-        </div>
-
-        <div class="cot-field">
-          <label>5. Amplificaci&#243;n
-            <span id="audio-hint" class="audio-hint"></span>
-          </label>
-          <div class="cot-opts" id="audio-opts">
-            <button class="cot-opt active" id="ao-none" onclick="pick(this,'audio',0)">Sin amplificaci&#243;n</button>
-            <button class="cot-opt" id="ao-bas" onclick="pick(this,'audio',40000)">Set b&#225;sico (+$40.000)</button>
-            <button class="cot-opt" id="ao-max2" onclick="pick(this,'audio',80000)">2&#215; MAX 15 (+$80.000)</button>
-          </div>
-          <div class="ext-warn" id="ext-warn">
-            <p>&#9888;&#65039; <strong>Apoyo externo requerido para +150 asistentes.</strong><br>
-            Esta configuraci&#243;n requiere coordinaci&#243;n directa seg&#250;n las caracter&#237;sticas del espacio. Por favor cont&#225;ctanos por WhatsApp para cotizar la amplificaci&#243;n de tu evento.</p>
-            <a class="btn btn-green" style="margin-top:.8rem;font-size:.78rem;padding:.6rem 1.2rem;display:inline-flex"
-               href="https://wa.me/56964223619?text=Hola!%20Necesito%20amplificaci%C3%B3n%20para%20m%C3%A1s%20de%20150%20asistentes." target="_blank">
-              <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.857L0 24l6.303-1.496A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.373l-.36-.214-3.737.887.922-3.62-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
-              Consultar por WhatsApp
-            </a>
-          </div>
-        </div>
-
-        <div class="cot-field">
-          <label>6. Ubicaci&#243;n del evento</label>
-          <div class="cot-opts">
-            <button class="cot-opt active" onclick="pick(this,'zona','dentro')">Dentro de Vespucio</button>
-            <button class="cot-opt" onclick="pick(this,'zona','metro')">Fuera de Vespucio (metro)</button>
-            <button class="cot-opt" onclick="pick(this,'zona','rural')">Zona rural (auto)</button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- RESULT RIGHT -->
-      <div class="cot-result">
-        <div class="cot-result-title">&#127926; Estimaci&#243;n de tu evento</div>
-        <ul class="cot-bkd" id="bkd"></ul>
-        <div class="cot-total-row">
-          <span class="lbl">TOTAL ESTIMADO</span>
-          <span class="val" id="tot-val">$0</span>
-        </div>
-        <p class="cot-disc">* Valor orientativo en pesos chilenos. No incluye amplificaci&#243;n por apoyo externo si corresponde. Cotizaci&#243;n formal v&#237;a WhatsApp.</p>
-        <!-- DESCUENTO -->
-        <div style="margin-top:1rem;border-top:1px solid var(--div);padding-top:1rem">
-          <div style="font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">&#127991; C&#243;digo de descuento</div>
-          <div style="display:flex;gap:.5rem">
-            <input id="disc-input" type="text" maxlength="20" placeholder="Ingresa tu c&#243;digo"
-              style="flex:1;background:rgba(255,255,255,.04);border:1px solid var(--div);color:var(--cream);font-family:var(--body);font-size:.84rem;padding:.44rem .75rem;border-radius:2px;outline:none;text-transform:uppercase;letter-spacing:.09em"/>
-            <button onclick="applyDiscount()"
-              style="background:rgba(224,140,42,.15);border:1px solid rgba(224,140,42,.3);color:var(--amber);font-family:var(--body);font-size:.74rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;padding:.44rem .85rem;border-radius:2px;cursor:pointer">
-              Aplicar
-            </button>
-          </div>
-          <div id="disc-msg" style="font-size:.71rem;margin-top:.4rem;min-height:1em"></div>
-        </div>
-        <!-- PAGO: reemplaza FLOW_LINK_AQUI con tu link de Flow.cl o Mercado Pago -->
-        <div style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem">
-          <a id="pay-btn" href="https://FLOW_LINK_AQUI" target="_blank"
-            style="display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,#1a56db,#1e40af);color:#fff;font-family:var(--body);font-weight:500;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;padding:.8rem 1.8rem;border-radius:2px;box-shadow:0 0 22px rgba(26,86,219,.25);transition:all .2s;text-decoration:none">
-            <svg width="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
-            Pagar y reservar en l&#237;nea
-          </a>
-          <div style="display:flex;align-items:center;gap:.55rem">
-            <div style="flex:1;height:1px;background:var(--div)"></div>
-            <span style="font-size:.62rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase">o</span>
-            <div style="flex:1;height:1px;background:var(--div)"></div>
-          </div>
-          <a id="cot-wa" href="https://wa.me/56964223619?text=Hola!%20Quiero%20cotizar%20un%20evento." target="_blank"
-            style="display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:#25D366;color:#fff;font-family:var(--body);font-weight:500;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;padding:.8rem 1.8rem;border-radius:2px;box-shadow:0 0 24px rgba(37,211,102,.22);transition:all .2s;text-decoration:none">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.857L0 24l6.303-1.496A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.373l-.36-.214-3.737.887.922-3.62-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
-            Consultar por WhatsApp
-          </a>
-        </div>
-      </div>
+    <div class="cta">
+      <div class="eyebrow">¿Listos para tocar?</div><h2>Haz que tu evento<br>suene distinto.</h2>
+      <p class="lead" style="margin:0 auto 25px">Cuéntanos fecha, lugar, tipo de evento y si necesitas amplificación.</p>
+      <a class="btn primary" href="https://wa.me/56964223619?text=Hola%21%20Me%20interesa%20contratar%20a%20A%20Raz%20de%20Cuerda%20para%20un%20evento.">Reservar por WhatsApp</a>
     </div>
   </div>
 </section>
 
-<!-- REPERTORIO -->
-<section id="repertorio">
-  <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">Lista de canciones</div>
-      <h2 class="sec-title">Repertorio Est&#225;ndar</h2>
-      <div class="sec-line"></div>
-      <p class="bt" style="max-width:680px;margin-bottom:2rem">Lista completa de temas disponibles. Los de <strong style="color:var(--cream)">banda</strong> suenan mejor en tr&#237;o o d&#250;o; los <strong style="color:var(--amber)">solistas</strong> funcionan en cualquier formato. Ambas listas pueden combinarse seg&#250;n el evento.</p>
-    </div>
-    <div class="rep-grid">
-      <div class="reveal">
-        <div class="rep-col-header"><span class="badge badge-banda">Banda completa</span><span class="rep-col-title">Tr&#237;o</span></div>
-        <ul class="track-list">
-          <li><span class="tnum">01</span>Drive<span class="tband">Incubus</span></li>
-          <li><span class="tnum">02</span>My Hero<span class="tband">Foo Fighters</span></li>
-          <li><span class="tnum">03</span>Creep<span class="tband">Stone Temple Pilots</span></li>
-          <li><span class="tnum">04</span>Everlong<span class="tband">Foo Fighters</span></li>
-          <li><span class="tnum">05</span>Be Yourself<span class="tband">Audioslave</span></li>
-          <li><span class="tnum">06</span>Losing My Religion<span class="tband">R.E.M.</span></li>
-          <li><span class="tnum">07</span>Don&#39;t Let Me Down<span class="tband">The Beatles</span></li>
-          <li><span class="tnum">08</span>And I Love Her<span class="tband">The Beatles</span></li>
-          <li><span class="tnum">09</span>Wicked Game<span class="tband">Chris Isaak</span></li>
-          <li><span class="tnum">10</span>Wonderful Tonight<span class="tband">Eric Clapton</span></li>
-          <li><span class="tnum">11</span>Something<span class="tband">The Beatles</span></li>
-          <li><span class="tnum">12</span>Arrancacorazones<span class="tband">Ataque 77</span></li>
-          <li><span class="tnum">13</span>The World I Know<span class="tband">Collective Soul</span></li>
-        </ul>
-      </div>
-      <div class="reveal">
-        <div class="rep-col-header"><span class="badge badge-solo">Solista</span><span class="rep-col-title">Guitarra y voz</span></div>
-        <ul class="track-list">
-          <li><span class="tnum">01</span>Father and Son<span class="tband">Cat Stevens</span></li>
-          <li><span class="tnum">02</span>Wild World<span class="tband">Cat Stevens</span></li>
-          <li><span class="tnum">03</span>Black Hole Sun<span class="tband">Soundgarden</span></li>
-          <li><span class="tnum">04</span>Spaguetti del Rock<span class="tband">Divididos</span></li>
-          <li><span class="tnum">05</span>Tears in Heaven<span class="tband">Eric Clapton</span></li>
-          <li><span class="tnum">06</span>Here Comes the Sun<span class="tband">The Beatles</span></li>
-          <li><span class="tnum">07</span>Wish You Were Here<span class="tband">Pink Floyd</span></li>
-          <li><span class="tnum">08</span>Like a Stone<span class="tband">Audioslave</span></li>
-          <li><span class="tnum">09</span>Lamento Boliviano<span class="tband">Enanitos Verdes</span></li>
-          <li><span class="tnum">10</span>Te Recuerdo Amanda<span class="tband">V&#237;ctor Jara</span></li>
-          <li><span class="tnum">11</span>Un Misil en Mi Placard<span class="tband">Soda Stereo</span></li>
-          <li><span class="tnum">12</span>Black<span class="tband">Pearl Jam</span></li>
-          <li><span class="tnum">13</span>Wish You Were Here<span class="tband">Pink Floyd</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="rep-special reveal">
-      <div class="rep-special-icon">&#127925;</div>
-      <div>
-        <div class="rep-special-title">Canciones especiales y dedicatorias</div>
-        <p class="rep-special-text">&#191;Tu canci&#243;n no est&#225; en la lista? Con <strong>al menos un mes de antelaci&#243;n</strong> podemos preparar temas especiales. Valor adicional seg&#250;n dificultad. Ideal para <strong>primera canci&#243;n de matrimonio, dedicatoria en vivo o cumplea&#241;os con significado especial</strong>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AMPLIFICACION -->
-<section id="amplificacion">
-  <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">Servicio adicional</div>
-      <h2 class="sec-title">Amplificaci&#243;n<br>y Audio</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="audio-grid">
-      <div class="reveal">
-        <p class="bt" style="margin-bottom:1.4rem">Contamos con equipo de amplificaci&#243;n propio disponible como <strong style="color:var(--cream)">servicio adicional</strong> a la m&#250;sica. Ideal para espacios sin sistema de audio o cuando se necesita mayor proyecci&#243;n de sonido.</p>
-        <div class="audio-card">
-          <div class="audio-card-title">&#127897; Equipamiento</div>
-          <ul class="equip-list">
-            <li><span>&#128264;</span>Amplificador JBL EON Max 15&#34; (2.000W pico)</li>
-            <li><span>&#127930;</span>Mezcladora de 8 canales</li>
-            <li><span>&#127908;</span>2 micr&#243;fonos din&#225;micos</li>
-            <li><span>&#127928;</span>DI Box para guitarra ac&#250;stica</li>
-            <li><span>&#127897;</span>2 atriles de micr&#243;fono</li>
-            <li><span>&#128268;</span>Cables XLR y set completo</li>
-            <li><span>&#128295;</span>Montaje y desmontaje incluidos</li>
-          </ul>
-        </div>
-      </div>
-      <div class="reveal">
-        <div style="font-family:var(--disp);font-size:1.1rem;color:var(--cream);margin-bottom:1rem;letter-spacing:.04em">Configuraciones de sonido</div>
-        <table class="audio-table">
-          <thead>
-            <tr><th>Configuraci&#243;n</th><th>Cerrado</th><th>Abierto</th><th>Valor</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1&#215; MAX 15</td><td>Hasta 60 pers.</td><td>Hasta 30 pers.</td><td class="price">$40.000</td></tr>
-            <tr><td>2&#215; MAX 15</td><td>Hasta 120 pers.</td><td>Hasta 60 pers.</td><td class="price">$80.000</td></tr>
-            <tr><td>Apoyo externo</td><td>Hasta 180 pers.</td><td>Hasta 90 pers.</td><td class="tbc">Consultar</td></tr>
-          </tbody>
-        </table>
-        <p class="audio-note-sm"><strong>Cerrado</strong> = sala o sal&#243;n interior &middot; <strong>Abierto</strong> = terraza, jard&#237;n o exterior.<br>Los valores se suman al precio de la presentaci&#243;n musical.<br>Si tu local ya tiene sistema de audio, podemos conectarnos sin costo adicional.</p>
-        <a class="btn btn-amber" style="margin-top:1.4rem;display:inline-flex"
-           href="https://wa.me/56964223619?text=Hola!%20Me%20interesa%20cotizar%20amplificaci%C3%B3n%20con%20A%20Raz%20de%20Cuerda." target="_blank">
-          Cotizar amplificaci&#243;n
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="container">
-    <div class="reveal">
-      <!-- Logo horizontal destacado en sección contacto -->
-      <div style="display:flex;justify-content:center;margin-bottom:2.2rem">
-        <img src="logo-horizontal.jpg" alt="A Raz de Cuerda"
-          style="
-            width:clamp(280px,55vw,580px);
-            mix-blend-mode:screen;
-            filter:brightness(1.15) contrast(1.05);
-            opacity:0;
-            animation:fadeUp .8s .2s ease forwards;
-          "/>
-      </div>
-      <div class="eyebrow">&#191;Listos para tocar en tu evento?</div>
-      <h2 class="sec-title">Reserva tu fecha</h2>
-      <div class="sec-line"></div>
-      <p class="cta-sub">Cu&#233;ntanos la fecha, el lugar, el tipo de evento y si necesitas amplificaci&#243;n. Te respondemos r&#225;pido, sin compromiso.</p>
-      <a class="btn btn-green" style="font-size:.95rem;padding:1rem 2.2rem"
-         href="https://wa.me/56964223619?text=Hola!%20Me%20interesa%20contratar%20a%20A%20Raz%20de%20Cuerda%20para%20un%20evento." target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.857L0 24l6.303-1.496A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.373l-.36-.214-3.737.887.922-3.62-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
-        Reservar por WhatsApp
-      </a>
-      <div class="c-alts">
-        <a class="c-alt" href="https://instagram.com/arazdecuerda" target="_blank"><span>&#128247;</span> Instagram</a>
-        <a class="c-alt" href="https://youtube.com/@arazdecuerda" target="_blank"><span>&#9654;&#65039;</span> YouTube</a>
-        <a class="c-alt" href="mailto:contacto@arazdecuerda.cl"><span>&#9993;&#65039;</span> Email</a>
-        <span class="c-alt" style="cursor:default"><span>&#128336;</span> Respuesta en menos de 24h</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="f-logo">A Raz de Cuerda</div>
-  <div class="f-copy">Rock Cl&#225;sico Ac&#250;stico &middot; Santiago, Chile &middot; &#169; 2025</div>
-</footer>
-
+<footer><div class="container footer-inner"><div class="footer-logo"><img src="https://gunyrock-cpu.github.io/A-Raz-de-Cuerda/logo-square-red.jpg" alt="Logo A Raz de Cuerda"></div><div><b>A Raz de Cuerda</b><br>Rock Clásico Acústico · Santiago, Chile</div><div>Instagram · YouTube · Respuesta en menos de 24h</div></div></footer>
 
 <script>
-// ─── CODIGOS DE DESCUENTO ────────────────────────────────────────────────────
-// Edita estos codigos: { 'CODIGO': porcentaje_descuento }
-var CODIGOS = { 'ARC10': 10, 'ARC15': 15, 'ARC20': 20 };
-var discountPct = 0;
-
-function applyDiscount() {
-  var code = document.getElementById('disc-input').value.trim().toUpperCase();
-  var msg  = document.getElementById('disc-msg');
-  if (CODIGOS[code] !== undefined) {
-    discountPct = CODIGOS[code];
-    msg.style.color = '#6fcf97';
-    msg.textContent = '\u2713 Descuento aplicado: ' + discountPct + '%';
-    calc();
-  } else if (code === '') {
-    msg.style.color = '#ff7070'; msg.textContent = 'Ingresa un c\u00f3digo';
-  } else {
-    discountPct = 0;
-    msg.style.color = '#ff7070'; msg.textContent = 'C\u00f3digo no v\u00e1lido o expirado';
-    calc();
-  }
+const state={musicians:1,minutes:45,amp:0,zone:0};
+function money(n){return '$'+n.toLocaleString('es-CL')}
+function update(){
+  const total=state.musicians*state.minutes*1000 + Number(state.amp)+Number(state.zone);
+  document.getElementById('total').textContent=money(total);
+  document.getElementById('minutesLabel').textContent=state.minutes;
 }
-document.addEventListener('DOMContentLoaded', function() {
-  var di = document.getElementById('disc-input');
-  if (di) di.addEventListener('keydown', function(e){ if(e.key==='Enter') applyDiscount(); });
-});
-
-// ─── VIDEO ───────────────────────────────────────────────────────────────────
-function playVideo(card) {
-  var iframe = card.querySelector('iframe');
-  var thumb  = card.querySelector('.vid-thumb');
-  iframe.src = iframe.dataset.src;
-  iframe.style.display = 'block';
-  thumb.style.display  = 'none';
-}
-document.querySelectorAll('.vid-card').forEach(function(card) {
-  card.addEventListener('dblclick', function(e) {
-    if (!e.target.closest('iframe')) window.open(card.dataset.yturl, '_blank');
+document.querySelectorAll('.options').forEach(group=>{
+  group.querySelectorAll('.option').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      group.querySelectorAll('.option').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      state[group.dataset.group]=Number(btn.dataset.value);
+      update();
+    });
   });
 });
-
-// ─── NAV ─────────────────────────────────────────────────────────────────────
-var nav = document.getElementById('navbar');
-window.addEventListener('scroll', function() {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// ─── SCROLL REVEAL ───────────────────────────────────────────────────────────
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e, i) {
-    if (e.isIntersecting) {
-      setTimeout(function(){ e.target.classList.add('visible'); }, i * 70);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.09 });
-document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
-
-// ─── COTIZADOR ───────────────────────────────────────────────────────────────
-var S = { formato:3, duracion:45, espacio:'cerrado', asistentes:50, zona:'dentro', audio:0 };
-
-function pick(el, g, v) {
-  document.querySelectorAll('[onclick*="pick(this,\''+g+'\'"]').forEach(function(b){ b.classList.remove('active'); });
-  el.classList.add('active');
-  S[g] = v;
-  if (g === 'espacio') syncAudio(S.asistentes);
-  calc();
-}
-
-function updAtt() {
-  var v = parseInt(document.getElementById('att-sl').value);
-  S.asistentes = v;
-  document.getElementById('att-lbl').textContent = v;
-  document.getElementById('att-vl').textContent  = v;
-  syncAudio(v);
-  calc();
-}
-
-function syncAudio(att) {
-  var hint   = document.getElementById('audio-hint');
-  var warn   = document.getElementById('ext-warn');
-  var aoNone = document.getElementById('ao-none');
-  var aoBas  = document.getElementById('ao-bas');
-  var aoMax  = document.getElementById('ao-max2');
-
-  [aoNone, aoBas, aoMax].forEach(function(b){ b.classList.remove('active'); b.disabled = false; });
-  hint.className   = 'audio-hint';
-  hint.textContent = '';
-  warn.classList.remove('show');
-
-  // Limites segun espacio (de la tabla de amplificacion)
-  // 1xMAX15: Cerrado=60, Abierto=30 | 2xMAX15: Cerrado=120, Abierto=60
-  var limBasico = S.espacio === 'cerrado' ? 60 : 30;
-  var limMax2   = S.espacio === 'cerrado' ? 120 : 60;
-
-  if (att <= limBasico) {
-    aoBas.classList.add('active');
-    S.audio = 40000;
-    hint.textContent = '\uD83D\uDCA1 Recomendado: Set b\u00e1sico (1\u00d7 MAX 15)';
-    hint.classList.add('show');
-  } else if (att <= limMax2) {
-    aoMax.classList.add('active');
-    S.audio = 80000;
-    hint.textContent = '\uD83D\uDCA1 Recomendado: 2\u00d7 MAX 15';
-    hint.classList.add('show');
-  } else {
-    [aoNone, aoBas, aoMax].forEach(function(b){ b.disabled = true; b.classList.remove('active'); });
-    S.audio = 0;
-    hint.textContent = '\u26A0\uFE0F Para ' + att + ' asistentes en espacio ' +
-      (S.espacio === 'cerrado' ? 'cerrado' : 'abierto') + ' se requiere apoyo externo';
-    hint.classList.add('show', 'warn');
-    warn.classList.add('show');
-  }
-}
-
-function fmt(n) { return '$' + Math.round(n).toLocaleString('es-CL'); }
-
-function calc() {
-  var mus  = S.formato === 4 ? 4 : S.formato;
-  var mins = Math.max(45, S.duracion);
-  var baseMusica = 1000 * mins * mus;
-
-  var attExtra = 0;
-  var a = S.asistentes;
-  if (a > 50) {
-    var tier = Math.floor((a - 1) / 50);
-    attExtra = 50000 + (tier - 1) * 10000;
-  }
-
-  var dist = 0;
-  if (S.zona === 'metro') dist = 5000 * mus;
-  else if (S.zona === 'rural') dist = 10000 * mus;
-
-  var audio    = parseInt(S.audio) || 0;
-  var subtotal = baseMusica + attExtra + dist + (a > 100 ? 0 : audio);
-  var descuento = Math.round(subtotal * (discountPct / 100));
-  var total    = subtotal - descuento;
-
-  var fmtN  = {1:'Solo', 2:'D\u00fao', 3:'Tr\u00edo', 4:'Tr\u00edo+Invitado'};
-  var zonaL = {dentro:'Dentro de Vespucio', metro:'Fuera de Vespucio (metro)', rural:'Zona rural'};
-
-  var rows = [
-    ['M\u00fasica (' + mus + ' m\u00fasico' + (mus > 1 ? 's' : '') + ' \u00d7 ' + S.duracion + ' min \u00d7 $1.000)', fmt(baseMusica)],
-    ['Asistentes (' + a + ' personas)', attExtra > 0 ? '+' + fmt(attExtra) : 'Incluido'],
-    ['Traslado (' + zonaL[S.zona] + ')', dist > 0 ? '+' + fmt(dist) : 'Sin cargo'],
-    ['Amplificaci\u00f3n', a > 100 ? 'Apoyo externo \u2192 consultar' : audio > 0 ? '+' + fmt(audio) : 'Sin amplificaci\u00f3n'],
-  ];
-
-  var html = '';
-  rows.forEach(function(r) {
-    html += '<li><span class="lbl">' + r[0] + '</span><span class="val">' + r[1] + '</span></li>';
-  });
-  if (discountPct > 0) {
-    html += '<li style="border-bottom:1px solid rgba(224,140,42,.07)">' +
-      '<span class="lbl" style="color:#6fcf97">Descuento (' + discountPct + '%)</span>' +
-      '<span class="val" style="color:#6fcf97">-' + fmt(descuento) + '</span></li>';
-  }
-  document.getElementById('bkd').innerHTML = html;
-
-  var showTotal = a > 100 ? baseMusica + attExtra + dist : total;
-  document.getElementById('tot-val').textContent = a > 100 ? fmt(showTotal) + ' + audio' : fmt(total);
-
-  // WhatsApp message
-  var waText = 'Hola! Cotice desde la web de A Raz de Cuerda:\n' +
-    '\u25ba Formato: ' + fmtN[S.formato] + '\n' +
-    '\u25ba Duraci\u00f3n: ' + S.duracion + ' minutos\n' +
-    '\u25ba Asistentes: ' + a + '\n' +
-    '\u25ba Zona: ' + zonaL[S.zona] + '\n' +
-    '\u25ba Amplificaci\u00f3n: ' + (a > 100 ? 'Apoyo externo' : audio > 0 ? 'S\u00ed' : 'No') + '\n' +
-    (discountPct > 0 ? '\u25ba Descuento: ' + discountPct + '%\n' : '') +
-    '\u25ba Estimaci\u00f3n: ' + (a > 100 ? fmt(showTotal) + ' + audio ext.' : fmt(total)) + '\n\n' +
-    'Me interesa confirmar disponibilidad.';
-  document.getElementById('cot-wa').href = 'https://wa.me/56964223619?text=' + encodeURIComponent(waText);
-
-  // Update pay button amount
-  var pb = document.getElementById('pay-btn');
-  if (pb) {
-    var base = pb.href.split('?')[0];
-    pb.href = base + '?amount=' + Math.round(total);
-  }
-}
-
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-document.getElementById('att-sl').value = 50;
-updAtt();
-calc();
+const people=document.getElementById('people');
+people.addEventListener('input',()=>document.getElementById('peopleLabel').textContent=people.value);
+update();
 </script>
 </body>
 </html>
